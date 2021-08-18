@@ -48,17 +48,60 @@ class _HomePageState extends State<HomePage> {
         drawer: Drawer(
           child: ListView(
             children: [
-              DrawerHeader(
-                  decoration: BoxDecoration(color: Colors.blue),
-                  child: Text("CodeCave")),
+              UserAccountsDrawerHeader(
+                accountName: Text("CodeCave"),
+                accountEmail: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [Text("+919876543210"), Icon(Icons.arrow_downward)],
+                ),
+                currentAccountPicture: CircleAvatar(
+                  child: FlutterLogo(
+                    size: 42.0,
+                  ),
+                  backgroundColor: Colors.deepPurpleAccent,
+                ),
+              ),
               ListTile(
-                title: Text("Item 1"),
+                leading: Icon(Icons.group_outlined),
+                title: Text("New Group"),
                 onTap: () {},
               ),
               ListTile(
-                title: Text("Item 2"),
+                leading: Icon(Icons.person_outline),
+                title: Text("Contact"),
                 onTap: () {},
-              )
+              ),
+              ListTile(
+                leading: Icon(Icons.call_outlined),
+                title: Text("Call"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text("People Nearby"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.group_outlined),
+                title: Text("New Group"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.save_alt),
+                title: Text("Saved Message"),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text("Settings"),
+                onTap: () {},
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.person_add_alt),
+                title: Text("Invite Friends"),
+                onTap: () {},
+              ),
             ],
           ),
         ),
