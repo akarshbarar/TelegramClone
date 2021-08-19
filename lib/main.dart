@@ -38,9 +38,39 @@ class _HomePageState extends State<HomePage> {
           ),
           actions: [Icon(Icons.search)],
         ),
-        body: Center(
-          child: Text("Hii"),
-        ),
+        body: ListView.builder(
+            itemCount: 200,
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(
+                leading: CircleAvatar(
+                  child: FlutterLogo(),
+                  radius: 25,
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Name $index"),
+                    Text(
+                      "12:29pm",
+                      style: TextStyle(color: Colors.grey, fontSize: 15),
+                    )
+                  ],
+                ),
+                subtitle: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Message $index"),
+                    Chip(
+                      label: Text(
+                        "4",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      backgroundColor: Colors.blue,
+                    )
+                  ],
+                ),
+              );
+            }),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: Icon(Icons.add),
