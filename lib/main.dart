@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telegramclone/chat.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: "Telegram",
       debugShowCheckedModeBanner: false,
       home: HomePage(),
+      routes: {'/chat': (context) => Chat()},
     );
   }
 }
@@ -42,6 +44,9 @@ class _HomePageState extends State<HomePage> {
             itemCount: 200,
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
+                onTap: () {
+                  Navigator.of(context).pushNamed('/chat');
+                },
                 leading: CircleAvatar(
                   child: FlutterLogo(),
                   radius: 25,
