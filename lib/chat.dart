@@ -32,7 +32,10 @@ class _ChatState extends State<Chat> {
                     itemCount: 100,
                     reverse: true,
                     itemBuilder: (BuildContext context, int index) {
-                      return Text("Hii $index");
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: chatbubble(context, index),
+                      );
                     }),
               ),
               Expanded(
@@ -50,7 +53,26 @@ class _ChatState extends State<Chat> {
   }
 }
 
-
-// Widget chatbubble(BuildContext context, int index){
-//   if()
-// }
+Widget chatbubble(BuildContext context, int index) {
+  if (index % 2 == 0) {
+    return Padding(
+      padding: EdgeInsets.only(right: 150, bottom: 10),
+      child: Container(
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            color: Colors.red, borderRadius: BorderRadius.circular(15)),
+        child: Text("Hi $index"),
+      ),
+    );
+  } else {
+    return Padding(
+      padding: EdgeInsets.only(left: 150, bottom: 10),
+      child: Container(
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            color: Colors.amber, borderRadius: BorderRadius.circular(15)),
+        child: Text("hello $index"),
+      ),
+    );
+  }
+}
