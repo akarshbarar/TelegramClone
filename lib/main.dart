@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:telegramclone/chat.dart';
+import 'package:telegramclone/profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
       title: "Telegram",
       debugShowCheckedModeBanner: false,
       home: HomePage(),
-      routes: {'/chat': (context) => Chat()},
+      routes: {
+        '/chat': (context) => Chat(),
+        '/profile': (context) => Profile()
+      },
     );
   }
 }
@@ -83,17 +87,25 @@ class _HomePageState extends State<HomePage> {
         drawer: Drawer(
           child: ListView(
             children: [
-              UserAccountsDrawerHeader(
-                accountName: Text("CodeCave"),
-                accountEmail: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text("+919876543210"), Icon(Icons.arrow_downward)],
-                ),
-                currentAccountPicture: CircleAvatar(
-                  child: FlutterLogo(
-                    size: 42.0,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed('/profile');
+                },
+                child: UserAccountsDrawerHeader(
+                  accountName: Text("CodeCave"),
+                  accountEmail: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("+919876543210"),
+                      Icon(Icons.arrow_downward)
+                    ],
                   ),
-                  backgroundColor: Colors.deepPurpleAccent,
+                  currentAccountPicture: CircleAvatar(
+                    child: FlutterLogo(
+                      size: 42.0,
+                    ),
+                    backgroundColor: Colors.deepPurpleAccent,
+                  ),
                 ),
               ),
               ListTile(
