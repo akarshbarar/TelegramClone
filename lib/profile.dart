@@ -43,8 +43,19 @@ class _ProfileState extends State<Profile> {
             Container(
                 decoration: BoxDecoration(color: Colors.white),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Account"),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15.0,
+                        top: 10,
+                      ),
+                      child: Text("Account",
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w700)),
+                    ),
                     ListTile(
                       title: Text(
                         "+919321456987",
@@ -65,6 +76,38 @@ class _ProfileState extends State<Profile> {
                     ),
                   ],
                 )),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+                decoration: BoxDecoration(color: Colors.white),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15.0,
+                        top: 10,
+                      ),
+                      child: Text("Settings",
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w700)),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.alarm),
+                      title: Text(
+                        "Notifications and Sounds",
+                      ),
+                    ),
+                    Divider(),
+                    ListTile(
+                      leading: Icon(Icons.privacy_tip),
+                      title: Text("Privacy and setting"),
+                    )
+                  ],
+                ))
           ],
         ),
       ),
